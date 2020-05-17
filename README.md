@@ -5,16 +5,19 @@ It does not currently work with opening the source files directly(i.e `vim ~/.lo
 
 # Install with vim-plug
 
-```vimscript
-" .~/.vimrc
+```vim
+" ~/.vimrc
 Plug 'Lilja/vim-chezmoi'
 ```
 
 and then
-```vimscript
-" .~/.vimrc
+```vim
+" ~/.vimrc
 let g:chezmoi = "enabled"
 ```
+
+## Usage
+First install it using your favorite plugin manager. Then, to edit a dotfile, run `chezmoi edit <dotfile>`, where `<dotfile>` is a dotfile, like `~/.bashrc`. Now, all writes being done to that file are applied(`chezmoi apply`) automatically.
 
 ## Arguments
 `vim-chezmoi` has two options. You will very likely not need it.
