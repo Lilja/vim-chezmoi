@@ -9,7 +9,7 @@ function s:GetDotfileFromCommand(cmd)
 endfunction
 
 function g:Chezmoi(...)
-	let l:chezmoiBinary = get(g: "chezmoi_executable", "chezmoi")
+	let l:chezmoiBinary = get(g:, "chezmoi_executable", "chezmoi")
         let g:vimChezmoiDebugMode = get(g:, "chezmoi_debug_mode", 0)
 
 	if executable(l:chezmoiBinary) == 0
