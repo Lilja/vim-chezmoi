@@ -9,7 +9,7 @@ function s:GetDotfileFromCommand(cmd)
 endfunction
 
 function s:GetParentPid(pid)
-	return substitute(system("ps -o ppid= -p " . a:pid), '^\s*\(.\{-}\)\s*$', '\1', '')
+	return substitute(system("ps -o ppid= -p " . a:pid), '\n', '\1', '')
 endfunction
 
 function s:GetCmdline(pid)
