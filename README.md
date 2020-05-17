@@ -8,18 +8,16 @@ It does not currently work with opening the source files directly(i.e `vim ~/.lo
 ```vimscript
 " .~/.vimrc
 Plug 'Lilja/vim-chezmoi'
-
 ```
 
 and then
 ```vimscript
 " .~/.vimrc
 let g:chezmoi = "enabled"
-
 ```
 
 ## Arguments
-`Chezmoi()` has two arguments. You will very likely not need it.
+`vim-chezmoi` has two options. You will very likely not need it.
 
 
 * `g:chezmoi_executable` the binary for chezmoi, a string. Default is `"chezmoi"`
