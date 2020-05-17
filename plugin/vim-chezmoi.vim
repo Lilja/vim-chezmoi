@@ -8,7 +8,7 @@ function s:GetDotfileFromCommand(cmd)
 	return a:cmd[-1]
 endfunction
 
-function Chezmoi(...)
+function g:Chezmoi(...)
 	let l:chezmoiBinary = get(a:, 1, "chezmoi")
         let g:vimChezmoiDebugMode = get(a:, 2, 0)
 
