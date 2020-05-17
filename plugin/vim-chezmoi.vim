@@ -4,6 +4,10 @@ function s:Log(...)
 	endif
 endfunction
 
+function s:GetDotfileFromCommand(cmd)
+	return a:cmd[-1]
+endfunction
+
 function Chezmoi(...)
 	let l:chezmoiBinary = get(a:, 1, "chezmoi")
         let g:vimChezmoiDebugMode = get(a:, 2, 0)
@@ -28,11 +32,10 @@ function Chezmoi(...)
 			call s:Log("Readable parent pid file")
 			let l:parentPidFileContents = readfile(l:parentPidFile)[0]
 			let l:parentPidFileSplitted = split(l:parentPidFileContents, "\n")
-			let l:parentPidFileCmd = join(l:parentPidFileSplitted, " ")
 
 			call s:Log(l:parentPidFileSplitted)
 			if l:parentPidFileSplitted[0] == l:chezmoiBinary && l:parentPidFileSplitted[1] == "edit"
-				let l:dotfile = l:parentPidFileSplitted[2]
+				let l:dotfile = s:GetDotfileFromCommand(l:parentPidFileSplitted)
 				call s:Log("This vim session was launched via chezmoi edit. The dotfile that is being edited is " . l:dotfile)
 				let g:chezmoiCommandToExecute = "!" . l:chezmoiBinary . " apply " . l:dotfile
 				call s:Log("Cmd to execute on write: " . g:chezmoiCommandToExecute)
