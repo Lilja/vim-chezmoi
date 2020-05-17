@@ -55,4 +55,6 @@ function g:Chezmoi(...)
 	endif
 endfunction
 
-echo "chezmoi source"
+if exists("g:chezmoi")
+    call g:Chezmoi()
+endif
