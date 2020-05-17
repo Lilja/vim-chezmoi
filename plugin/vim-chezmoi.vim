@@ -30,13 +30,14 @@ function Chezmoi(...)
 			let l:parentPidFileSplitted = split(l:parentPidFileContents, "\n")
 			let l:parentPidFileCmd = join(l:parentPidFileSplitted, " ")
 
-			if stridx(l:parentPidFileCmd, chezmoiBinary . ' edit') != -1
+			call s:Log(l:parentPidFileSplitted)
+			if l:parentPidFileSplitted[0] == l:chezmoiBinary && l:parentPidFileSplitted[1] == "edit"
 				let l:dotfile = l:parentPidFileSplitted[2]
 				call s:Log("This vim session was launched via chezmoi edit. The dotfile that is being edited is " . l:dotfile)
 				let g:chezmoiCommandToExecute = "!" . l:chezmoiBinary . " apply " . l:dotfile
-				call s:Log("Cmd to execute on write:" . g:chezmoiCommandToExecute)
+				call s:Log("Cmd to execute on write: " . g:chezmoiCommandToExecute)
 				if g:vimChezmoiDebugMode != 1
-					let g:chezmoiCommandToExecute = ":silent" . g:chezmoiCommandToExecute
+					let g:chezmoiCommandToExecute = ":silent " . g:chezmoiCommandToExecute
 				endif
 				au BufWritePost * execute g:chezmoiCommandToExecute
 

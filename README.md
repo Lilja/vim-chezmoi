@@ -1,5 +1,5 @@
 # vim-chezmoi
-vim-chezmoi is a plugin for vim to instantly apply the dotfile you are editing to [chezmoi](https://github.com/twpayne/chezmoi).
+vim-chezmoi is a plugin for vim to apply the dotfile you are editing to [chezmoi](https://github.com/twpayne/chezmoi), on `:w`.
 
 It does not currently work with opening the source files directly(i.e `vim ~/.local/share/dotfile`), only `chezmoi edit dotfile`.
 
