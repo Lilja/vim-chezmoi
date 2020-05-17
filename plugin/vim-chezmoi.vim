@@ -53,4 +53,4 @@ endfunction
 
 if exists("g:chezmoi")
     call g:Chezmoi()
-endifndif
+endif
