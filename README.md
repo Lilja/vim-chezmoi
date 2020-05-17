@@ -14,11 +14,13 @@ Plug 'Lilja/vim-chezmoi'
 and then
 ```vimscript
 " .~/.vimrc
-call Chezmoi()
+let g:chezmoi = "enabled"
+
 ```
 
 ## Arguments
-`Chezmoi()` takes two arguments. You will very likely not need it.
+`Chezmoi()` has two arguments. You will very likely not need it.
 
-* `chezmoiBinary` the binary for chezmoi, a string. Default is `"chezmoi"`
-* `debugMode` a debug mode for the plugin. Default value is off.
+
+* `g:chezmoi_executable` the binary for chezmoi, a string. Default is `"chezmoi"`
+* `g:chezmoi_debug_mode` a debug mode for the plugin. Default value is off.
