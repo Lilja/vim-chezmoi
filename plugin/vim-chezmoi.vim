@@ -54,3 +54,5 @@ function g:Chezmoi(...)
 		call s:Log("Can not open the process file " . pidFile)
 	endif
 endfunction
+
+echo "I'm called!"
