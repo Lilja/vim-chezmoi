@@ -35,7 +35,7 @@ function g:Chezmoi(...)
 	let l:parentPidFileSplitted = split(l:parentPidFileContents, " ")
 
 	call s:Log(l:parentPidFileSplitted)
-	if l:parentPidFileSplitted[0] == l:chezmoiBinary && l:parentPidFileSplitted[1] == "edit"
+	if stridx(l:parentPidFileSplitted[0], l:chezmoiBinary) != -1 && l:parentPidFileSplitted[1] == "edit"
 		let l:dotfile = s:GetDotfileFromCommand(l:parentPidFileSplitted)
 		call s:Log("This vim session was launched via chezmoi edit. The dotfile that is being edited is " . l:dotfile)
 		let g:chezmoiCommandToExecute = "!" . l:chezmoiBinary . " apply " . l:dotfile
